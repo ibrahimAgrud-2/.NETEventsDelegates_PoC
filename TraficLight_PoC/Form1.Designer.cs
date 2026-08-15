@@ -28,13 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.ctrlTraficLight1 = new TraficLight_PoC.ctrlTraficLight();
             this.SuspendLayout();
+            // 
+            // ctrlTraficLight1
+            // 
+            this.ctrlTraficLight1.CurrentLight = TraficLight_PoC.ctrlTraficLight.enLights.Red;
+            this.ctrlTraficLight1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctrlTraficLight1.Location = new System.Drawing.Point(124, 28);
+            this.ctrlTraficLight1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ctrlTraficLight1.Name = "ctrlTraficLight1";
+            this.ctrlTraficLight1.Size = new System.Drawing.Size(164, 278);
+            this.ctrlTraficLight1.TabIndex = 0;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(838, 420);
+            this.Controls.Add(this.ctrlTraficLight1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -46,6 +58,8 @@
         }
 
         #endregion
+
+        private ctrlTraficLight ctrlTraficLight1;
     }
 }
 

@@ -1,0 +1,12 @@
+C:\Users\ibrah\source\repos\TraficLight_PoC\TraficLight_PoC\bin\Debug\TraficLight_PoC.exe.config
+C:\Users\ibrah\source\repos\TraficLight_PoC\TraficLight_PoC\bin\Debug\TraficLight_PoC.exe
+C:\Users\ibrah\source\repos\TraficLight_PoC\TraficLight_PoC\bin\Debug\TraficLight_PoC.pdb
+C:\Users\ibrah\source\repos\TraficLight_PoC\TraficLight_PoC\obj\Debug\TraficLight_PoC.csproj.AssemblyReference.cache
+C:\Users\ibrah\source\repos\TraficLight_PoC\TraficLight_PoC\obj\Debug\TraficLight_PoC.ctrlTraficLight.resources
+C:\Users\ibrah\source\repos\TraficLight_PoC\TraficLight_PoC\obj\Debug\TraficLight_PoC.Form1.resources
+C:\Users\ibrah\source\repos\TraficLight_PoC\TraficLight_PoC\obj\Debug\TraficLight_PoC.Properties.Resources.resources
+C:\Users\ibrah\source\repos\TraficLight_PoC\TraficLight_PoC\obj\Debug\TraficLight_PoC.csproj.GenerateResource.cache
+C:\Users\ibrah\source\repos\TraficLight_PoC\TraficLight_PoC\obj\Debug\TraficLight_PoC.csproj.CoreCompileInputs.cache
+C:\Users\ibrah\source\repos\TraficLight_PoC\TraficLight_PoC\obj\Debug\TraficLight_PoC.exe
+C:\Users\ibrah\source\repos\TraficLight_PoC\TraficLight_PoC\obj\Debug\TraficLight_PoC.pdb
+C:\Users\ibrah\source\repos\TraficLight_PoC\TraficLight_PoC\obj\Debug\TraficLight_PoC.exe.config

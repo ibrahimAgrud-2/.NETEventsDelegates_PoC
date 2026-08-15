@@ -28,8 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblCounter = new System.Windows.Forms.Label();
             this.pbTrafficLight = new System.Windows.Forms.PictureBox();
+            this.Timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pbTrafficLight)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,10 +47,12 @@
             // 
             // pbTrafficLight
             // 
-            this.pbTrafficLight.Location = new System.Drawing.Point(11, 5);
+            this.pbTrafficLight.Image = global::TraficLight_PoC.Properties.Resources.Red;
+            this.pbTrafficLight.Location = new System.Drawing.Point(13, 7);
             this.pbTrafficLight.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pbTrafficLight.Name = "pbTrafficLight";
             this.pbTrafficLight.Size = new System.Drawing.Size(145, 238);
+            this.pbTrafficLight.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbTrafficLight.TabIndex = 1;
             this.pbTrafficLight.TabStop = false;
             // 
@@ -72,5 +76,6 @@
 
         private System.Windows.Forms.Label lblCounter;
         private System.Windows.Forms.PictureBox pbTrafficLight;
+        private System.Windows.Forms.Timer Timer1;
     }
 }
