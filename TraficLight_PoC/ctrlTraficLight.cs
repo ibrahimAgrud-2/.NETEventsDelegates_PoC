@@ -132,24 +132,24 @@ namespace TraficLight_PoC
             {
                 case enLights.Red:
                     CurrentLight = enLights.Orange;
-                    ColorChanged(new EventData(enLights.Red,_CurrentLight));
+                    //ColorChanged(new EventData(enLights.Red,_CurrentLight));
                     break;
                 case enLights.Orange:
                     CurrentLight = enLights.Green;
-                    ColorChanged(new EventData(enLights.Orange, _CurrentLight));
+                   // ColorChanged(new EventData(enLights.Orange, _CurrentLight));
                     break;
                 case enLights.Green:
                     CurrentLight = enLights.Red;
-                    ColorChanged(new EventData(enLights.Green, _CurrentLight));
+                   // ColorChanged(new EventData(enLights.Green, _CurrentLight));
                     break;
             }
         }
         private void Timer1_Tick(object sender, EventArgs e)
         {
             lblCounter.Text = _Counter.ToString();
-            this.Refresh();
 
-            if (_Counter==0)
+
+            if (_Counter==1)
             {
                 changeColor();
                 return;
@@ -157,9 +157,9 @@ namespace TraficLight_PoC
             else
             {
                 _Counter--;
-             
+       
             }
-        
+
 
         }
     }
