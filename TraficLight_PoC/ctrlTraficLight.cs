@@ -18,7 +18,38 @@ namespace TraficLight_PoC
             InitializeComponent();
         }
 
-       public enum enLights {Red=1,Orange=2,Green=3 };
+
+        public class EventData : EventArgs
+        {
+            public int val1;
+            public int val2;
+            public int result;
+
+            public EventData(int val1, int val2, int result)
+            {
+                this.val1 = val1;
+                this.val2 = val2;
+                this.result = result;
+            }
+
+
+
+        }
+        
+        
+        public event Action<int> OnColorChanged;
+        // Create a protected method to raise the event with a parameter
+        protected virtual void PersonLoaded(int PersonID)
+        {
+            Action<int> handler = OnColorChanged;
+            if (handler != null)
+            {
+                handler(PersonID); // Raise the event with the parameter
+            }
+        }
+
+
+        public enum enLights {Red=1,Orange=2,Green=3 };
 
 
         private enLights _CurrentLight;
@@ -46,17 +77,31 @@ namespace TraficLight_PoC
 
             get { return _CurrentLight; } }
 
+
+        /// <summary>
+        ///GreenTime determines how many seconds the light color will remain green after turning green.
+        /// </summary>
         public byte GreenTime { set { _GreenTime = value; } get { return _GreenTime; } }
+
+        /// <summary>
+        ///OrangeTime determines how many seconds the light color will remain orange after turning orange.
+        /// </summary>
         public byte OrangeTime { set { _OrangeTime = value; } get { return _OrangeTime; } }
+
+        /// <summary>
+        ///RedTime determines how many seconds the light color will remain red after turning red.
+        /// </summary>
         public byte RedTime { set { _RedTime = value; } get { return _RedTime; } }
 
 
 
-
+        /// <summary>
+        /// starts the timers.
+        /// </summary>
         public void Start()
         {
-            
 
+          
         }
 
 
