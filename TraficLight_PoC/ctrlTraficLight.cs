@@ -72,8 +72,8 @@ namespace TraficLight_PoC
                 if(value==enLights.Red)
                 {
                     pbTrafficLight.Image = Resources.Red;
-                    _Counter = RedTime;
                     lblCounter.ForeColor = Color.Red;
+                    _Counter = RedTime;
                 }
                 else if(value==enLights.Green)
                 {
@@ -146,18 +146,18 @@ namespace TraficLight_PoC
         }
         private void Timer1_Tick(object sender, EventArgs e)
         {
-            lblCounter.Text = _Counter.ToString();
-
-
-            if (_Counter==1)
+       
+            if (_Counter==0)
             {
                 changeColor();
+                lblCounter.Text = _Counter.ToString();
                 return;
             }
             else
             {
+                lblCounter.Text = _Counter.ToString();
                 _Counter--;
-       
+             
             }
 
 
