@@ -35,10 +35,13 @@
             // 
             this.ctrlTraficLight1.CurrentLight = TraficLight_PoC.ctrlTraficLight.enLights.Red;
             this.ctrlTraficLight1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ctrlTraficLight1.Location = new System.Drawing.Point(124, 28);
+            this.ctrlTraficLight1.GreenTime = ((byte)(0));
+            this.ctrlTraficLight1.Location = new System.Drawing.Point(251, 51);
             this.ctrlTraficLight1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ctrlTraficLight1.Name = "ctrlTraficLight1";
-            this.ctrlTraficLight1.Size = new System.Drawing.Size(164, 278);
+            this.ctrlTraficLight1.OrangeTime = ((byte)(0));
+            this.ctrlTraficLight1.RedTime = ((byte)(0));
+            this.ctrlTraficLight1.Size = new System.Drawing.Size(170, 283);
             this.ctrlTraficLight1.TabIndex = 0;
             // 
             // Form1

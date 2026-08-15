@@ -22,8 +22,11 @@ namespace TraficLight_PoC
 
 
         private enLights _CurrentLight;
+        private byte _GreenTime;
+        private byte _RedTime;
+        private byte _OrangeTime;
 
-       public enLights CurrentLight { set
+        public enLights CurrentLight { set
             {
                 _CurrentLight = value;
                     
@@ -43,8 +46,12 @@ namespace TraficLight_PoC
 
             get { return _CurrentLight; } }
 
+        public byte GreenTime { set { _GreenTime = value; } get { return _GreenTime; } }
+        public byte OrangeTime { set { _OrangeTime = value; } get { return _OrangeTime; } }
+        public byte RedTime { set { _RedTime = value; } get { return _RedTime; } }
 
-     
+
+
 
         public void Start()
         {
