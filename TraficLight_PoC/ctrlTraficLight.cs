@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TraficLight_PoC.Properties;
@@ -21,30 +22,32 @@ namespace TraficLight_PoC
 
         public class EventData : EventArgs
         {
-            public int val1;
-            public int val2;
-            public int result;
+            public enLights PreviousColor;
+            public enLights CurrentColor;
+        
 
-            public EventData(int val1, int val2, int result)
+            public EventData(enLights PreviousColor, enLights CurrentColor)
             {
-                this.val1 = val1;
-                this.val2 = val2;
-                this.result = result;
+                this.PreviousColor = PreviousColor;
+                this.CurrentColor = CurrentColor;
             }
 
 
 
         }
         
-        
-        public event Action<int> OnColorChanged;
+
+        /// <summary>
+        /// Event to notify subs after color changed
+        /// </summary>
+        public event Action<EventData> OnColorChanged;
         // Create a protected method to raise the event with a parameter
-        protected virtual void PersonLoaded(int PersonID)
+        protected virtual void ColorChanged(EventData e)
         {
-            Action<int> handler = OnColorChanged;
+            Action<EventData> handler = OnColorChanged;
             if (handler != null)
             {
-                handler(PersonID); // Raise the event with the parameter
+                handler(e); // Raise the event with the parameters
             }
         }
 
@@ -52,10 +55,15 @@ namespace TraficLight_PoC
         public enum enLights {Red=1,Orange=2,Green=3 };
 
 
-        private enLights _CurrentLight;
+        private enLights _CurrentLight=enLights.Red;
         private byte _GreenTime;
         private byte _RedTime;
         private byte _OrangeTime;
+
+        /// <summary>
+        /// Counter to set color
+        /// </summary>
+        private byte _Counter;
 
         public enLights CurrentLight { set
             {
@@ -64,15 +72,25 @@ namespace TraficLight_PoC
                 if(value==enLights.Red)
                 {
                     pbTrafficLight.Image = Resources.Red;
+                    _Counter = RedTime;
+                    lblCounter.ForeColor = Color.Red;
                 }
                 else if(value==enLights.Green)
                 {
                     pbTrafficLight.Image = Resources.Green;
+                    _Counter = GreenTime;
+                    lblCounter.ForeColor = Color.Green;
+
                 }
                 else if(value==enLights.Orange)
                 {
                     pbTrafficLight.Image = Resources.Orange;
-                } ;}
+                    _Counter = OrangeTime;
+                    lblCounter.ForeColor = Color.Orange;
+
+                }
+                ;
+            }
 
 
             get { return _CurrentLight; } }
@@ -100,11 +118,49 @@ namespace TraficLight_PoC
         /// </summary>
         public void Start()
         {
-
-          
+            _Counter = RedTime;
+            Timer1.Start();
         }
 
 
+        /// <summary>
+        /// set color and rise 'color changed' event
+        /// </summary>
+        private void changeColor()
+        {
+            switch(_CurrentLight)
+            {
+                case enLights.Red:
+                    CurrentLight = enLights.Orange;
+                    ColorChanged(new EventData(enLights.Red,_CurrentLight));
+                    break;
+                case enLights.Orange:
+                    CurrentLight = enLights.Green;
+                    ColorChanged(new EventData(enLights.Orange, _CurrentLight));
+                    break;
+                case enLights.Green:
+                    CurrentLight = enLights.Red;
+                    ColorChanged(new EventData(enLights.Green, _CurrentLight));
+                    break;
+            }
+        }
+        private void Timer1_Tick(object sender, EventArgs e)
+        {
+            lblCounter.Text = _Counter.ToString();
+            this.Refresh();
 
+            if (_Counter==0)
+            {
+                changeColor();
+                return;
+            }
+            else
+            {
+                _Counter--;
+             
+            }
+        
+
+        }
     }
 }

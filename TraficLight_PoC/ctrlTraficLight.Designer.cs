@@ -56,6 +56,11 @@
             this.pbTrafficLight.TabIndex = 1;
             this.pbTrafficLight.TabStop = false;
             // 
+            // Timer1
+            // 
+            this.Timer1.Interval = 1000;
+            this.Timer1.Tick += new System.EventHandler(this.Timer1_Tick);
+            // 
             // ctrlTraficLight
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);

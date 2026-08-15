@@ -35,14 +35,15 @@
             // 
             this.ctrlTraficLight1.CurrentLight = TraficLight_PoC.ctrlTraficLight.enLights.Red;
             this.ctrlTraficLight1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ctrlTraficLight1.GreenTime = ((byte)(0));
-            this.ctrlTraficLight1.Location = new System.Drawing.Point(251, 51);
+            this.ctrlTraficLight1.GreenTime = ((byte)(10));
+            this.ctrlTraficLight1.Location = new System.Drawing.Point(60, 34);
             this.ctrlTraficLight1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ctrlTraficLight1.Name = "ctrlTraficLight1";
-            this.ctrlTraficLight1.OrangeTime = ((byte)(0));
-            this.ctrlTraficLight1.RedTime = ((byte)(0));
+            this.ctrlTraficLight1.OrangeTime = ((byte)(6));
+            this.ctrlTraficLight1.RedTime = ((byte)(7));
             this.ctrlTraficLight1.Size = new System.Drawing.Size(170, 283);
             this.ctrlTraficLight1.TabIndex = 0;
+            this.ctrlTraficLight1.OnColorChanged += new System.Action<TraficLight_PoC.ctrlTraficLight.EventData>(this.ctrlTraficLight1_OnColorChanged);
             // 
             // Form1
             // 
@@ -56,6 +57,7 @@
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
 
         }
