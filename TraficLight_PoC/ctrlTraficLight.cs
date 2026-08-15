@@ -24,12 +24,14 @@ namespace TraficLight_PoC
         {
             public enLights PreviousColor;
             public enLights CurrentColor;
-        
+            public enLights NextColor;
 
-            public EventData(enLights PreviousColor, enLights CurrentColor)
+
+            public EventData(enLights PreviousColor, enLights CurrentColor,enLights nextColor)
             {
                 this.PreviousColor = PreviousColor;
                 this.CurrentColor = CurrentColor;
+                this.NextColor = nextColor;
             }
 
 
@@ -55,7 +57,9 @@ namespace TraficLight_PoC
         public enum enLights {Red=1,Orange=2,Green=3 };
 
 
-        private enLights _CurrentLight=enLights.Red;
+        private enLights _CurrentLight;
+
+
         private byte _GreenTime;
         private byte _RedTime;
         private byte _OrangeTime;
@@ -113,12 +117,31 @@ namespace TraficLight_PoC
 
 
 
+  
+        private void setTimer()
+        {
+            switch (_CurrentLight)
+            {
+                case enLights.Red:
+                    _Counter = RedTime;
+                    break;
+                case enLights.Orange:
+                    _Counter = OrangeTime;
+                    break;
+                case enLights.Green:
+                    _Counter = GreenTime;
+                    break;
+            }
+        }
+
         /// <summary>
         /// starts the timers.
         /// </summary>
+        /// 
+
         public void Start()
         {
-            _Counter = RedTime;
+            setTimer();
             Timer1.Start();
         }
 
@@ -132,15 +155,15 @@ namespace TraficLight_PoC
             {
                 case enLights.Red:
                     CurrentLight = enLights.Orange;
-                    //ColorChanged(new EventData(enLights.Red,_CurrentLight));
+                    ColorChanged(new EventData(enLights.Red,_CurrentLight,enLights.Green));
                     break;
                 case enLights.Orange:
                     CurrentLight = enLights.Green;
-                   // ColorChanged(new EventData(enLights.Orange, _CurrentLight));
+                    ColorChanged(new EventData(enLights.Orange, _CurrentLight, enLights.Red));
                     break;
                 case enLights.Green:
                     CurrentLight = enLights.Red;
-                   // ColorChanged(new EventData(enLights.Green, _CurrentLight));
+                    ColorChanged(new EventData(enLights.Green, _CurrentLight,enLights.Orange));
                     break;
             }
         }

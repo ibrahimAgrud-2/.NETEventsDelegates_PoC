@@ -19,12 +19,20 @@ namespace TraficLight_PoC
 
         private void ctrlTraficLight1_OnColorChanged(ctrlTraficLight.EventData e)
         {
-            MessageBox.Show($"Color changed from {e.PreviousColor} to {e.CurrentColor}");
+          
+            ctrlTraficLight2.CurrentLight = e.NextColor;
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             ctrlTraficLight1.Start();
+            ctrlTraficLight2.CurrentLight = ctrlTraficLight1.CurrentLight + 1;
+        }
+
+        private void ctrlTraficLight1_Load(object sender, EventArgs e)
+        {
+           
         }
     }
 }
